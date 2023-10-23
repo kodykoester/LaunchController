@@ -1,5 +1,4 @@
 // Constants
-
 const int RED_PIN = 5;  // Red LED connected to pin 5
 const int GREEN_PIN = 4;   //Green LED connected to pin 5
 const int BLUE_PIN = 3;   //Blue LED connected to pin 5
@@ -10,8 +9,8 @@ const int RELAY_PIN    = 8; // Connection to relay HERE
 // Variables
 
 int relayState = LOW;     // tracks the current state of LED
-int lastButtonState;    // the previous state of button
-int currentButtonState; // the current state of button
+int lastButtonState;    // the previous state of the button
+int currentButtonState; // the current state of the button
 
 
 
@@ -23,7 +22,7 @@ Serial.begin(9600);                // initialize serial
 pinMode(RED_PIN, OUTPUT);
 pinMode(GREEN_PIN, OUTPUT);
 pinMode(BLUE_PIN, OUTPUT);
-pinMode(BUTTON_PIN, INPUT_PULLUP); // set arduino pin to input pull-up mode
+pinMode(BUTTON_PIN, INPUT_PULLUP); // set Arduino pin to input pull-up mode
 pinMode(SWITCH_PIN, INPUT_PULLUP);
 pinMode(RELAY_PIN, OUTPUT);          // RELAY Pin output...for when you need it.
 
@@ -44,7 +43,7 @@ pinMode(RELAY_PIN, OUTPUT);          // RELAY Pin output...for when you need it.
 
 
 void loop() {
-// put your main code here, to run repeatedly:
+
   if(digitalRead(SWITCH_PIN) == HIGH){
     digitalWrite(RED_PIN, HIGH);
   }
@@ -58,7 +57,7 @@ currentButtonState = digitalRead(BUTTON_PIN); // read new state
 if(lastButtonState == HIGH && currentButtonState == LOW && digitalRead (SWITCH_PIN)== HIGH) {
   
   Serial.println("Launch");
-  // Add serial.print Time/Date/Time/Humid./Alt.
+                                  // Add serial.print Time/Date/Time/Humid./Alt.
   
   if(relayState == LOW) // If relay low,
     relayState = HIGH;  // Switch relay to HIGH
